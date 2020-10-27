@@ -1,6 +1,15 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HelloWorld msg="Welcome to Your Vue.js App">
+      <template v-slot:luhan="infor">
+        <div>name:{{ infor.user.name }}</div>
+      </template>
+      <template #me>
+        <div>
+          {{ infor }}
+        </div>
+      </template>
+    </HelloWorld>
     <div class="content">
       <p class="box left">box1</p>
       <p class="box right">box2</p>
@@ -36,7 +45,7 @@ export default {
     const id = ref('12345');
     const myName = computed(() => state.name + ' & liuhuanwei');
     console.log(id, id.value, myName.value);
-    window.Listening
+    window.Listening;
     return {
       state,
       id
@@ -89,7 +98,7 @@ export default {
     height: 100px;
     text-align: center;
     line-height: 100px;
-    border-radius: 20px;
+    border-radius: 200px;
   }
   .left {
     box-shadow: inset var(--blackShadow), inset var(--whiteShadow);
